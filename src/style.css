@@ -1,0 +1,148 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 10px;
+  padding: 0.6em 1.2em;
+  margin: 0 0.7em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #ff6f6f;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
+  outline: none;
+  border: none;
+}
+button:hover {
+  background-color: #f09595;
+}
+
+button:focus:active {
+  transform: scale(0.9);
+}
+
+input {
+  width: 40%;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  transition: .3s;
+}
+
+input:focus {
+  box-shadow: 1px 1px 5px #d8d8d8;
+}
+
+img {
+  width: 200px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.create {
+  background: none;
+}
+
+.create:hover {
+  background: #585858;
+}
+
+.posts {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.post {
+  position: relative;
+  width: 200px;
+  background: #e6e6e6;
+  color: black;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.visible {
+  display: block;
+}
+
+.invisible {
+  display: none;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+}
+
+.actions {
+  padding: 5px;
+  background: #242424;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  cursor: pointer;
+}
+
+.action {
+  font-size: 7px;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  background: none;
+  color: #d8d8d8;
+  cursor: pointer;
+}
+
+#app {
+  width: 100vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
