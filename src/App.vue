@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue';
+import { computed }   from '@vue/reactivity'
+import { ref }        from 'vue'
 
 const title = "Kitty Posts"
 
@@ -10,6 +11,8 @@ const img = "https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?auto=f
 
 let counter = ref(0)
 let found   = ref(true)
+
+const displayPost   = computed(() => !found.value ? "invisible" : "visible")
 
 let increment = () => counter.value++
 
@@ -28,8 +31,6 @@ let onInput = e => {
 
 <template>
   <main>
-    <!-- <h1 v-text=title></h1> Directiva -->
-    <!-- Las directivas se definen con v- y la caracteristica que deseemos -->
     <h1>{{ title }}</h1>
     <section class="search">
       <input 
@@ -40,7 +41,8 @@ let onInput = e => {
       >
     </section>
     <section class="posts">
-      <div :class="{ visible: found, invisible: !found }" class="post">
+      <h2 v-if="!found">Post not Found:(</h2>
+      <div :class="displayPost" class="post">
         <div class="actions">
           <p class="action">⚪</p>
           <p class="action">⚪</p>
