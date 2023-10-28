@@ -13,7 +13,7 @@ let found = ref(true)
 
 const displayPost = computed(() => !found.value ? "invisible" : "visible")
 
-let increment = post => post.likes.value++
+let increment = post => post.likes++
 
 let onInput = e => {
   const valueLower  = e.target.value.toLowerCase()
