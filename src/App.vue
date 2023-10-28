@@ -1,30 +1,38 @@
 <script setup>
 import { computed }   from '@vue/reactivity'
 import { ref }        from 'vue'
+import posts          from './utils/posts.json'
 
-const title = "Kitty Posts"
+posts.forEach(post => post.likes = ref(0))
 
-const post_title        = "Gato reflexivo"
-const post_description  = "Ta pensativo de la vida"
+let foundPosts = ref([...posts])
 
-const img = "https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D"
+let title = "Kitty Posts"
 
-let counter = ref(0)
-let found   = ref(true)
+let found = ref(true)
 
-const displayPost   = computed(() => !found.value ? "invisible" : "visible")
+const displayPost = computed(() => !found.value ? "invisible" : "visible")
 
-let increment = () => counter.value++
+let increment = post => post.likes.value++
 
 let onInput = e => {
   const valueLower  = e.target.value.toLowerCase()
-  const titleLower  = post_title.toLowerCase()
-  
-  titleLower.includes(valueLower) 
-  ? found.value = true 
-  : found.value = false
+  // const foundPosts = posts.filter(post => post.title.toLowerCase().includes(valueLower))
+  foundPosts.value.splice(0, foundPosts.value.length)
 
-  if(!valueLower) found.value = true 
+  posts.forEach(post => {
+    const titleLower  = post.title.toLowerCase()
+    if(titleLower.includes(valueLower)) {
+      foundPosts.value.push(post)
+      found.value = true   
+    } 
+  })
+  
+  if(!valueLower) {
+    found.value = true
+    foundPosts = ref([...posts])
+  }   
+  if(!foundPosts.value.length) found.value = false
 }
 
 </script>
@@ -42,18 +50,22 @@ let onInput = e => {
     </section>
     <section class="posts">
       <h2 v-if="!found">Post not Found:(</h2>
-      <div :class="displayPost" class="post">
-        <div class="actions">
-          <p class="action">⚪</p>
-          <p class="action">⚪</p>
-          <p class="action">⚪</p>
+      <div v-for="post in foundPosts" :class="displayPost" class="post">
+        <div class="options">
+          <p class="point">⚪</p>
+          <p class="point">⚪</p>
+          <p class="point">⚪</p>
         </div>
-        <img :src=img :alt=img >
-        <h3>{{ post_title }}</h3>
-        <p>{{ post_description }}</p>
-        <div class="likes">
-          <button @click="increment">❤</button>
-          <p>Likes: {{ counter }}</p>
+        <img :src=post.src :alt=post.title >
+        <div class="post_body">
+          <div class="post_info">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.description }}</p>
+          </div>
+          <div class="post_footer">
+            <button @click="increment(post)">❤</button>
+            <p>Likes: {{ post.likes }}</p>
+          </div>
         </div>
       </div>
     </section>

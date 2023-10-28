@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "likes": 0,
+    "title": "Gato reflexivo",
+    "description": "Ta pensando sobre la vida",
+    "src": "https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 2,
+    "likes": 0,
+    "title": "Multiples gatitos",
+    "description": "Son muchos aaaa",
+    "src": "https://www.elmueble.com/medio/2023/05/22/gatitos_4ce92f47_230522125019_1200x630.jpg"
+  },
+  {
+    "id": 3,
+    "likes": 0,
+    "title": "Gato con cara de odio",
+    "description": "No durmio bien y escogio el camino de la violencia",
+    "src": "https://images.hola.com/imagenes/mascotas/20180925130054/consejos-para-cuidar-a-un-gatito-recien-nacido-cs/0-601-526/cuidardgatito-t.jpg?tx=w_680"
+  },
+  {
+    "id": 4,
+    "likes": 0,
+    "title": "Madre e hijo",
+    "description": "De tal palo tal astilla",
+    "src": "https://fotografias.flooxernow.com/clipping/cmsimages02/2022/07/13/404F0395-B90B-459E-BF14-5E9D64CAA45F/gato-boy-gatito-bandit_69.jpg?crop=1280,720,x0,y0&width=1280&height=720&optimize=low&format=webply"
+  },
+  {
+    "id": 5,
+    "likes": 0,
+    "title": "Mimido",
+    "description": "Esta zzz",
+    "src": "https://t1.ea.ltmcdn.com/es/posts/7/9/5/por_que_las_gatas_se_comen_a_sus_gatitos_recien_nacidos_22597_600.jpg"
+  },
+  {
+    "id": 6,
+    "likes": 0,
+    "title": "Cazador",
+    "description": "Cuidado porque si te ve te come",
+    "src": "https://static.fundacion-affinity.org/cdn/farfuture/tWn1HJyAyt9QNwpTJGmPVAy0VwFWoON-uk6LSI9x8KU/mtime:1528830326/sites/default/files/lo-que-tienes-que-saber-si-te-decides-por-adoptar-un-gatito.jpg"
+  }
+]
