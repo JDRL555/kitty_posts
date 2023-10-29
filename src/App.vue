@@ -37,12 +37,12 @@
         <h2 v-if="!found">Post not Found:(</h2>
       </template>
       <template v-slot:posts>
-        <div v-for="post in foundPosts" :class="displayPost" class="post">
-          <Post 
-            :post=post 
-            :increment=increment 
-          />
-        </div>
+        <Post 
+          v-for="post in foundPosts"
+          :post=post 
+          :increment=increment 
+          :displayPost=displayPost
+        />
       </template>
     </Posts>
 
