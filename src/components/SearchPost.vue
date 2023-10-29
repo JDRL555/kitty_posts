@@ -5,36 +5,42 @@
     foundPosts,
     posts,
     setFound,
-    setPosts,
-    addPost,
-    clearPosts
   } = defineProps(
     { 
       posts: Object, 
       foundPosts: Object,
       found: Boolean, 
-      setFound: Function, 
-      setPosts: Function, 
-      addPost: Function, 
-      clearPosts: Function, 
+      setFound: Function 
     }
   )
 
+  const setPosts = (foundPosts, newPosts) => {
+    foundPosts = newPosts
+  }
+
+  const addPost = (foundPosts, newPost) => {
+    foundPosts.push(newPost)
+  }
+
+  const clearPosts = foundPosts => {
+    foundPosts.length = 0
+  }
+
   let onInput = e => {
   const valueLower  = e.target.value.toLowerCase()
-  clearPosts()
+  clearPosts(foundPosts)
 
   posts.forEach(post => {
     const titleLower  = post.title.toLowerCase()
     if(titleLower.includes(valueLower)) {
-      addPost(post)
+      addPost(foundPosts, post)
       setFound(true)   
     } 
   })
   
   if(!valueLower) {
     setFound(true)
-    setPosts(ref([...posts]))
+    setPosts(foundPosts, ref([...posts]))
   }   
   if(!foundPosts.length) setFound(false)
 }

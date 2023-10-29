@@ -1,37 +1,24 @@
 <script setup>
-import { computed }   from '@vue/reactivity'
-import { ref, watch } from 'vue'
+  import { computed }   from '@vue/reactivity'
+  import { ref, watch } from 'vue'
 
-import SearchPost     from './components/SearchPost.vue'
-import Posts          from './components/Posts.vue'
-import Post           from './components/Post.vue'
+  import SearchPost     from './components/SearchPost.vue'
+  import Posts          from './components/Posts.vue'
+  import Post           from './components/Post.vue'
 
-import posts          from './utils/posts.json'
+  import posts          from './utils/posts.json'
 
-posts.forEach(post => post.likes = ref(0))
+  posts.forEach(post => post.likes = ref(0))
 
-let foundPosts = ref([...posts])
+  let foundPosts = ref([...posts])
 
-const setPosts = newPosts => {
-  foundPosts = newPosts
-}
+  let found = ref(true)
 
-const addPost = newPost => {
-  foundPosts.value.push(newPost)
-}
+  let setFound = newValue => found.value = newValue
 
-const clearPosts = () => {
-  foundPosts.value.length = 0
-}
+  const displayPost = computed(() => !found.value ? "invisible" : "visible")
 
-let found = ref(true)
-
-let setFound = newValue => found.value = newValue
-
-const displayPost = computed(() => !found.value ? "invisible" : "visible")
-
-let increment = post => post.likes++
-
+  let increment = post => post.likes++
 </script>
 
 <template>
@@ -43,9 +30,6 @@ let increment = post => post.likes++
       :found=found 
       :foundPosts=foundPosts
       :setFound=setFound
-      :setPosts=setPosts
-      :addPost=addPost
-      :clearPosts=clearPosts
     />
 
     <Posts :found=found>
