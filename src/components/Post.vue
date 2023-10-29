@@ -1,26 +1,21 @@
 <script setup>
+  import { provide }  from 'vue'
+
+  import PostOptions  from './PostOptions.vue'
+  import PostBody     from './PostBody.vue'
+  
   const { 
     post, increment, displayPost 
   } = defineProps({ post: Object, increment: Function, displayPost: Boolean })
+
+  provide("post", post)
+  provide("increment", increment)
 </script>
 
 <template>
   <div :class="displayPost" class="post">
-    <div class="options">
-      <p class="point">⚪</p>
-      <p class="point">⚪</p>
-      <p class="point">⚪</p>
-    </div>
+    <PostOptions />
     <img :src=post.src :alt=post.title >
-    <div class="post_body">
-      <div class="post_info">
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.description }}</p>
-      </div>
-      <div class="post_footer">
-        <button @click="increment(post)">❤</button>
-        <p>Likes: {{ post.likes }}</p>
-      </div>
-    </div>
+    <PostBody />
   </div>
 </template>

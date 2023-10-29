@@ -1,12 +1,12 @@
 <script setup>
-  import { computed }   from '@vue/reactivity'
-  import { ref, watch } from 'vue'
+  import { computed     }   from '@vue/reactivity'
+  import { ref }            from 'vue'
 
-  import SearchPost     from './components/SearchPost.vue'
-  import Posts          from './components/Posts.vue'
-  import Post           from './components/Post.vue'
+  import SearchPost         from './components/SearchPost.vue'
+  import Posts              from './components/Posts.vue'
+  import Post               from './components/Post.vue'
 
-  import posts          from './utils/posts.json'
+  import posts              from './utils/posts.json'
 
   posts.forEach(post => post.likes = ref(0))
 
